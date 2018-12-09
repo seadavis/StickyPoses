@@ -12,7 +12,14 @@ namespace Assets.Sources.Exceptions
     /// </summary>
     public class NamedObjectDoesNotExistException : Exception
     {
-        public NamedObjectDoesNotExistException(INamedObject named): base(String.Format("The Object: {0} does not exist", named.Name))
+
+
+        public NamedObjectDoesNotExistException(string name) : base(String.Format("The Object: {0} does not exist", name))
+        {
+
+        }
+
+        public NamedObjectDoesNotExistException(INamedObject named): this(named.Name)
         {
 
         }

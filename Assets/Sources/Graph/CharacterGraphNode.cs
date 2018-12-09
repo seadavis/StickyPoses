@@ -57,5 +57,19 @@ namespace Assets.Sources.Graph
 
         #endregion
 
+        #region Public Methods
+
+        /// <summary>
+        /// Tests if the two nodes have the same name.
+        /// </summary>
+        /// <param name="node">the node we want to compare to.</param>
+        /// <returns>True if the names are equal, ignoring case.</returns>
+        public bool Equals(CharacterGraphNode node)
+        {
+            return String.Compare(this.Name, node.Name, StringComparison.InvariantCultureIgnoreCase) == 0;
+        }
+
+        #endregion
+
     }
 }

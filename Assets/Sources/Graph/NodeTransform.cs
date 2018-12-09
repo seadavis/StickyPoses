@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UnityEngine;
+using System.Numerics;
 
 namespace Assets.Sources.Graph
 {
@@ -38,8 +38,8 @@ namespace Assets.Sources.Graph
         /// </summary>
         public NodeTransform()
         {
-            this.Position = Vector3.zero;
-            this.Rotation = Quaternion.identity;
+            this.Position = Vector3.Zero;
+            this.Rotation = Quaternion.Identity;
         }
 
         /// <summary>
