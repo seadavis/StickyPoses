@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StickyPoses", "Assembly-CSharp.csproj", "{97E871C3-0BA8-8D73-8403-E453A45EB500}"
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{97E871C3-0BA8-8D73-8403-E453A45EB500}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUnityRotoscope", "..\TestUnityRotoscope\TestUnityRotoscope.csproj", "{E32860F2-B222-42BB-B127-E5C94E42D7D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUnityRotoscope", "TestUnityRotoscope\TestUnityRotoscope.csproj", "{E32860F2-B222-42BB-B127-E5C94E42D7D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C578768A-3FF4-4F67-9709-AA3CB4FFDE45}
 	EndGlobalSection
 EndGlobal
