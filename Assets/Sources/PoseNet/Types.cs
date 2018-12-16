@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Sources.Interfaces;
+using UnityEngine;
 
 public partial class PoseNet
 {
@@ -27,13 +28,15 @@ public partial class PoseNet
         }
     }
 
-    public struct Keypoint
+    public struct Keypoint : INamedObject
     {
         public float score;
-        public Vector2 position;
+        public System.Numerics.Vector2 position;
         public string part;
 
-        public Keypoint(float score, Vector2 position, string part)
+        public string Name { get { return part; } }
+
+        public Keypoint(float score, System.Numerics.Vector2 position, string part)
         {
             this.score = score;
             this.position = position;

@@ -1,4 +1,5 @@
-﻿using QuickGraph;
+﻿using Assets.Sources.Interfaces;
+using QuickGraph;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Sources.Graph
 {
-    public class CharacterGraphEdge : IEdge<CharacterGraphNode>
+    public class CharacterGraphEdge : IEdge<CharacterGraphNode>, INamedObject
     {
         #region Private Variables
 
@@ -29,6 +30,14 @@ namespace Assets.Sources.Graph
         public CharacterGraphNode Target
         {
             get { return this._nodeOut; }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return String.Format("{0}_{1}", this.Source.Name, this.Target.Name);
+            }
         }
 
         #endregion

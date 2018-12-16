@@ -13,9 +13,12 @@ namespace Assets.Sources.Exceptions
     /// </summary>
     public class NamedObjectCollision : Exception
     {
+        public NamedObjectCollision(string name, object owner) :
+         base(String.Format("The Named Object: {0} already exists on {1}", name, owner.GetType().Name))
+        { }
 
-        public NamedObjectCollision(INamedObject named, object owner) :
-            base(String.Format("The Named Object: {0} already exists on {1}", named.Name, owner.GetType().Name))
+
+        public NamedObjectCollision(INamedObject named, object owner) : this(named.Name, owner)
         { }
     }
 }

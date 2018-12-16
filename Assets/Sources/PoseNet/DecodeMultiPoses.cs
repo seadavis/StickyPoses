@@ -3,6 +3,7 @@ using UnityEditor;
 using TensorFlow;
 using System.Collections.Generic;
 using System.Linq;
+using Assets;
 
 public partial class PoseNet {
 
@@ -11,8 +12,8 @@ public partial class PoseNet {
     {
         return poses.Any(pose =>
             SquaredDistance(vec.y, vec.x,
-                pose.keypoints[keypointId].position.y,
-                pose.keypoints[keypointId].position.x) <= squaredNmsRadius
+                pose.keypoints[keypointId].position.Y,
+                pose.keypoints[keypointId].position.X) <= squaredNmsRadius
         );
         //foreach (var pose in poses)
         //{
@@ -31,7 +32,7 @@ public partial class PoseNet {
         Keypoint[] instanceKeypoints) {
 
         float notOverlappedKeypointScores = instanceKeypoints
-           .Where((x, id) => !WithinNmsRadiusOfCorrespondingPoint(existingPoses, squaredNmsRadius, x.position, id))
+           .Where((x, id) => !WithinNmsRadiusOfCorrespondingPoint(existingPoses, squaredNmsRadius, x.position.ToUnityVector(), id))
            .Sum(x => x.score);
 
         //int id = 0;

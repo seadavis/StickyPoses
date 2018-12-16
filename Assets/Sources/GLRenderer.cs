@@ -75,8 +75,8 @@ public class GLRenderer : MonoBehaviour
             for (float theta = 0.0f; theta < (2 * Mathf.PI); theta += 0.01f)
             {
                 GL.Vertex3(
-                    Mathf.Cos(theta) * radius + keypoint.position.x * scale,
-                    Mathf.Sin(theta) * radius + keypoint.position.y * scale, 0f);
+                    Mathf.Cos(theta) * radius + keypoint.position.X * scale,
+                    Mathf.Sin(theta) * radius + keypoint.position.X * scale, 0f);
             }
             GL.End();
             GL.PopMatrix();
@@ -89,8 +89,8 @@ public class GLRenderer : MonoBehaviour
 
         foreach (var keypoint in adjacentKeyPoints)
         {
-            DrawLine2D(new Vector2(keypoint.Item1.position.x * scale, keypoint.Item1.position.y * scale),
-                       new Vector2(keypoint.Item2.position.x * scale, keypoint.Item2.position.y * scale), 0.03f);
+            DrawLine2D(new Vector2(keypoint.Item1.position.X * scale, keypoint.Item1.position.Y * scale),
+                       new Vector2(keypoint.Item2.position.X * scale, keypoint.Item2.position.Y * scale), 0.03f);
         }
     }
 

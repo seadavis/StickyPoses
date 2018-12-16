@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets;
+using UnityEngine;
 
 public partial class PoseNet
 {
@@ -40,12 +41,12 @@ public partial class PoseNet
 
         // Nearest neighbor interpolation for the source->target displacements.
         var sourceKeypointIndices = GetStridedIndexNearPoint(
-            sourceKeypoint.position, outputStride, height, width);
+            sourceKeypoint.position.ToUnityVector(), outputStride, height, width);
 
         var displacement =
             GetDisplacement(edgeId, sourceKeypointIndices, displacements);
 
-        var displacedPoint = AddVectors(sourceKeypoint.position, displacement);
+        var displacedPoint = AddVectors(sourceKeypoint.position.ToUnityVector(), displacement);
 
         var displacedPointIndices =
             GetStridedIndexNearPoint(displacedPoint, outputStride, height, width);
@@ -64,7 +65,7 @@ public partial class PoseNet
                     y: displacedPointIndices.y * outputStride)
                 , new Vector2(x: offsetPoint.x, y: offsetPoint.y));
 
-        return new Keypoint(score, targetKeypoint, partNames[targetKeypointId]);
+        return new Keypoint(score, new System.Numerics.Vector2(targetKeypoint.x,targetKeypoint.y), partNames[targetKeypointId]);
     }
 
     Keypoint[] DecodePose(PartWithScore root, float[,,,] scores, float[,,,] offsets,
@@ -84,7 +85,7 @@ public partial class PoseNet
 
         instanceKeypoints[rootPart.id] = new Keypoint(
             rootScore,
-            rootPoint,
+            new System.Numerics.Vector2(rootPoint.x,rootPoint.y),
             partNames[rootPart.id]
         );
 

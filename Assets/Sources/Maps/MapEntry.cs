@@ -33,7 +33,8 @@ namespace Assets.Sources.Maps
         /// <param name="output">the output element of the map entry.</param>
         public MapEntry(TInput input, TOutput output)
         {
-
+            this.Input = input;
+            this.Output = output;
         }
 
         #endregion
