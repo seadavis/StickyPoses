@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TensorFlow;
+using System.Collections.Concurrent;
+using System.Linq;
 
 public class WebCameraExample : MonoBehaviour {
 
@@ -17,11 +19,12 @@ public class WebCameraExample : MonoBehaviour {
     //TFSession.Runner runner;
     TFGraph graph;
     bool isPosing;
+    public ConcurrentQueue<PoseNet.Keypoint[]> Keypoints;
 
     // Use this for initialization
     void Start () {
         WebCamDevice[] devices = WebCamTexture.devices;
-        webcamTexture = new WebCamTexture(devices[1].name, Width, Height, FPS);
+        webcamTexture = new WebCamTexture(devices[0].name, Width, Height, FPS);
         GetComponent<Renderer>().material.mainTexture = webcamTexture;
         webcamTexture.Play();
 
@@ -29,8 +32,8 @@ public class WebCameraExample : MonoBehaviour {
         graph = new TFGraph();
         graph.Import(graphModel.bytes);
         session = new TFSession(graph);
-        
-        gl = GameObject.Find("GLRender").GetComponent<GLRenderer>();
+        this.Keypoints = new ConcurrentQueue<PoseNet.Keypoint[]>();
+        gl = GameObject.Find("GLRender").GetComponent<GLRenderer>(); 
 
     }
 	
@@ -78,13 +81,21 @@ public class WebCameraExample : MonoBehaviour {
             displacementsFwd,
             displacementsBwd,
             outputStride: 16, maxPoseDetections: 1,
-            scoreThreshold: 0.15f, nmsRadius: 30);
+            scoreThreshold: 0.15f, nmsRadius: 25);
 
         isPosing = false;
-
+        
         texture = null;
         Resources.UnloadUnusedAssets();
 
+        if(poses !=null && poses.Length >0)
+        {
+            PoseNet.Keypoint[] keypoints = poses[0].keypoints.Where(point => point.score >= 0.15f).ToArray();
+            if(keypoints.Length> 0)
+            {
+                this.Keypoints.Enqueue(keypoints);
+            }
+        }
 
         yield return null;
     }

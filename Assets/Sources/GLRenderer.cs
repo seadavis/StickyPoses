@@ -25,17 +25,14 @@ public class GLRenderer : MonoBehaviour
     {
         CreateLineMaterial();
         lineMaterial.SetPass(0);
-        GL.PushMatrix();
-        GL.MultMatrix(transform.localToWorldMatrix);
-        GL.Begin(GL.QUADS);
-        GL.Color(Color.red);
         float minPoseConfidence = 0.15f;
-
+       
         foreach (var pose in poses)
         {
             //DrawResults(poses);
             if (pose.score >= minPoseConfidence)
             {
+               
                 DrawKeypoint(pose.keypoints,
                     minPoseConfidence, 0.02f);
                 //DrawSkeleton(pose.keypoints,
@@ -43,40 +40,31 @@ public class GLRenderer : MonoBehaviour
             }
         }
 
-        GL.End();
-        GL.PopMatrix();
-
-        foreach (var pose in poses)
-        {
-            //DrawResults(poses);
-            if (pose.score >= minPoseConfidence)
-            {
-                DrawKeypoint(pose.keypoints,
-                    minPoseConfidence, 0.02f);
-            }
-        }
+       
     }
 
     public void DrawKeypoint(PoseNet.Keypoint[] keypoints, float minConfidence, float scale)
     {
-        float radius = 0.08f;
+        float radius = 0.30f;
 
         foreach (var keypoint in keypoints)
         {
 
-            //if (keypoint.score < minConfidence) { continue; }
+            if (keypoint.score < minConfidence) { continue; }
+
+            //Debug.Log(string.Format("Drawing Keypoint Score: {0} Part:{1} Location:{2}", keypoint.score, keypoint.Name, keypoint.position));
 
             GL.PushMatrix();
             lineMaterial.SetPass(0);
             GL.MultMatrix(transform.localToWorldMatrix);
             GL.Begin(GL.LINES);
-            GL.Color(Color.green);
+            GL.Color(Color.red);
 
-            for (float theta = 0.0f; theta < (2 * Mathf.PI); theta += 0.01f)
+            for (float theta = 0.0f; theta < (2 * Mathf.PI); theta += 0.001f)
             {
                 GL.Vertex3(
                     Mathf.Cos(theta) * radius + keypoint.position.X * scale,
-                    Mathf.Sin(theta) * radius + keypoint.position.X * scale, 0f);
+                    Mathf.Sin(theta) * radius + keypoint.position.Y * scale, 0f);
             }
             GL.End();
             GL.PopMatrix();

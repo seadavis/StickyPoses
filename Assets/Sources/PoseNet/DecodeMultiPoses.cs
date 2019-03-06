@@ -61,7 +61,8 @@ public partial class PoseNet {
             scoreThreshold, kLocalMaximumRadius, scores);
 
         while (poses.Count < maxPoseDetections && queue.Count > 0)
-        {            
+        {
+           
             var root = queue.Pop().Value;
 
             // Part-based non-maximum suppression: We reject a root candidate if it

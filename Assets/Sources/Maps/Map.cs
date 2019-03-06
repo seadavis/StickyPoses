@@ -65,17 +65,17 @@ namespace Assets.Sources.Maps
         /// <param name="input">the output for the given input. Map to an empty array if the list does not contain at
         /// least one complete input set.</param>
         /// <returns>The output object</returns>
-        public TOutput GetOuput(List<NamedObject> input)
+        public TOutput[] GetOuput(List<NamedObject> input)
         {
             MapEntry<List<NamedObject>, TOutput>[] entries = this.GetEntries(input);
             
             if(entries.Length == 0)
             {
-                return default(TOutput);
+                return null;
             }
             else
             {
-                return entries.First().Output;
+                return entries.Select(entry => entry.Output).ToArray();
             }
         }
 

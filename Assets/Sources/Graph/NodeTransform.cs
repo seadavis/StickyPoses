@@ -7,12 +7,14 @@ using System.Numerics;
 
 namespace Assets.Sources.Graph
 {
+
     /// <summary>
     /// Class, that represents how a node transforms,
     /// relative to it's parent.
     /// 
     /// Has a Rotation Component and a translation component.
     /// </summary>
+    [Serializable]
     public class NodeTransform
     {
      
@@ -26,7 +28,7 @@ namespace Assets.Sources.Graph
         /// <summary>
         /// the current rotation of the node.
         /// </summary>
-        public Quaternion  Rotation { get;  set;}
+        public Tuple<float, Vector3>  Rotation { get;  set;}
 
         #endregion
 
@@ -39,7 +41,7 @@ namespace Assets.Sources.Graph
         public NodeTransform()
         {
             this.Position = Vector3.Zero;
-            this.Rotation = Quaternion.Identity;
+            this.Rotation = new Tuple<float, Vector3>(0.0f, Vector3.Zero);
         }
 
         /// <summary>
@@ -47,7 +49,7 @@ namespace Assets.Sources.Graph
         /// </summary>
         /// <param name="position"></param>
         /// <param name="rotation"></param>
-        public NodeTransform(Vector3 position, Quaternion rotation) : this()
+        public NodeTransform(Vector3 position, Tuple<float, Vector3> rotation) : this()
         {
             this.Position = position;
             this.Rotation = rotation;

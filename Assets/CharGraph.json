@@ -1,0 +1,881 @@
+{
+  "EdgeCapacity": -1,
+  "IsDirected": true,
+  "AllowParallelEdges": true,
+  "IsVerticesEmpty": false,
+  "VertexCount": 14,
+  "Vertices": [
+    {
+      "Name": "head",
+      "NeutralRotation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0,
+        "W": 1.0,
+        "IsIdentity": true
+      },
+      "Transformation": {
+        "Position": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Rotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        }
+      }
+    },
+    {
+      "Name": "leftShoulder",
+      "NeutralRotation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0,
+        "W": 1.0,
+        "IsIdentity": true
+      },
+      "Transformation": {
+        "Position": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Rotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": false
+        }
+      }
+    },
+    {
+      "Name": "leftElbow",
+      "NeutralRotation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0,
+        "W": 1.0,
+        "IsIdentity": true
+      },
+      "Transformation": {
+        "Position": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Rotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        }
+      }
+    },
+    {
+      "Name": "leftWrist",
+      "NeutralRotation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0,
+        "W": 1.0,
+        "IsIdentity": true
+      },
+      "Transformation": {
+        "Position": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Rotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        }
+      }
+    },
+    {
+      "Name": "rightShoulder",
+      "NeutralRotation": {
+        
+          "X": 0.7071068,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 0.7071068,
+          "IsIdentity": false
+        },
+        "Transformation": {
+          "Position": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0,
+            "IsIdentity": true
+          }
+        }
+      },
+    {
+      "Name": "rightElbow",
+      "NeutralRotation": {
+        "X": 0.7071068,
+        "Y": 0.0,
+        "Z": 0.0,
+        "W": 0.7071068,
+        "IsIdentity": false
+      },
+      "Transformation": {
+        "Position": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Rotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        }
+      }
+    },
+    {
+      "Name": "rightWrist",
+      "NeutralRotation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0,
+        "W": 1.0,
+        "IsIdentity": true
+      },
+      "Transformation": {
+        "Position": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Rotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        }
+      }
+    },
+    {
+      "Name": "leftHip",
+      "NeutralRotation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0,
+        "W": 1.0,
+        "IsIdentity": false
+      },
+      "Transformation": {
+        "Position": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Rotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        }
+      }
+    },
+    {
+      "Name": "rightHip",
+      "NeutralRotation": {
+        "X": 0.0,
+        "Y": -1.0,
+        "Z": 0.0,
+        "W": 0.0,
+        "IsIdentity": false
+      },
+      "Transformation": {
+        "Position": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Rotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        }
+      }
+    },
+    {
+      "Name": "leftKnee",
+      "NeutralRotation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0,
+        "W": 1.0,
+        "IsIdentity": true
+      },
+      "Transformation": {
+        "Position": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Rotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        }
+      }
+    },
+    {
+      "Name": "rightKnee",
+      "NeutralRotation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0,
+        "W": 1.0,
+        "IsIdentity": true
+      },
+      "Transformation": {
+        "Position": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Rotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        }
+      }
+    },
+    {
+      "Name": "leftAnkle",
+      "NeutralRotation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0,
+        "W": 1.0,
+        "IsIdentity": true
+      },
+      "Transformation": {
+        "Position": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Rotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        }
+      }
+    },
+    {
+      "Name": "rightAnkle",
+      "NeutralRotation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0,
+        "W": 1.0,
+        "IsIdentity": true
+      },
+      "Transformation": {
+        "Position": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Rotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        }
+      }
+    },
+    {
+      "Name": "neck",
+      "NeutralRotation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0,
+        "W": 1.0,
+        "IsIdentity": true
+      },
+      "Transformation": {
+        "Position": {
+          "X": 329,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Rotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        }
+      }
+    }
+  ],
+  "IsEdgesEmpty": false,
+  "EdgeCount": 9,
+  "Edges": [
+    {
+      "NeutralDirection": {
+        "X": 1.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "Source": {
+        "Name": "leftShoulder",
+        "NeutralRotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 1.0,
+          "W": 0.0,
+          "IsIdentity": true
+        },
+        "Transformation": {
+          "Position": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 0.0,
+            "IsIdentity": false
+          }
+        }
+      },
+      "Target": {
+        "Name": "leftElbow",
+        "NeutralRotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        },
+        "Transformation": {
+          "Position": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0,
+            "IsIdentity": true
+          }
+        }
+      },
+      "IsInverted": true,
+      "AngleRange": {
+        "Item1": -120.0,
+        "Item2": 0.0
+      },
+      "Name": "leftShoulder_leftElbow"
+    },
+    {
+      "NeutralDirection": {
+        "X": 1.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "Source": {
+        "Name": "leftElbow",
+        "NeutralRotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        },
+        "Transformation": {
+          "Position": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0,
+            "IsIdentity": true
+          }
+        }
+      },
+      "Target": {
+        "Name": "leftWrist",
+        "NeutralRotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        },
+        "Transformation": {
+          "Position": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0,
+            "IsIdentity": true
+          }
+        }
+      },
+      "AngleRange": {
+        "Item1": 0.0,
+        "Item2": 360.0
+      },
+      "Name": "leftElbow_leftWrist"
+    },
+    {
+      "NeutralDirection": {
+        "X": -1.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "Source": {
+        "Name": "rightShoulder",
+        "NeutralDirection": {
+          "X": 1.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "NeutralRotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        },
+        "Transformation": {
+          "Position": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0,
+            "IsIdentity": true
+          }
+        }
+      },
+      "Target": {
+        "Name": "rightElbow",
+        "NeutralRotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        },
+        "Transformation": {
+          "Position": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0,
+            "IsIdentity": true
+          }
+        }
+      },
+      "AngleRange": {
+        "Item1": -85.0,
+        "Item2": 85.0
+      },
+      "Name": "rightShoulder_rightElbow"
+    },
+    {
+      "NeutralDirection": {
+        "X": -1.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "Source": {
+        "Name": "rightElbow",
+        "NeutralRotation": {
+          "X": 0.7071068,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 0.7071068,
+          "IsIdentity": true
+        },
+        "Transformation": {
+          "Position": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0,
+            "IsIdentity": true
+          }
+        }
+      },
+      "Target": {
+        "Name": "rightWrist",
+        "NeutralRotation": {
+          "X": 0.7071068,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 0.7071068,
+          "IsIdentity": true
+        },
+        "Transformation": {
+          "Position": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0,
+            "IsIdentity": true
+          }
+        }
+      },
+      "AngleRange": {
+        "Item1": -85.0,
+        "Item2": 0.0
+      },
+      "Name": "rightElbow_rightWrist"
+    },
+    {
+      "NeutralDirection": {
+        "X": 0.0,
+        "Y": 1.0,
+        "Z": 0.0
+      },
+      "Source": {
+        "Name": "leftHip",
+        "NeutralRotation": {
+          "X": -0.04679234,
+          "Y": 0.02948745,
+          "Z": 0.99832,
+          "W": 0.0172596,
+          "IsIdentity": false
+        },
+        "Transformation": {
+          "Position": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0,
+            "IsIdentity": true
+          }
+        }
+      },
+      "Target": {
+        "Name": "leftKnee",
+        "NeutralRotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        },
+        "Transformation": {
+          "Position": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0,
+            "IsIdentity": true
+          }
+        }
+      },
+     
+      "Name": "leftHip_leftKnee"
+    },
+    {
+      "NeutralDirection": {
+        "X": 0.0,
+        "Y": 1.0,
+        "Z": 0.0
+      },
+      "Source": {
+        "Name": "rightHip",
+        "NeutralRotation": {
+          "X": -0.04583222,
+          "Y": 0.03095869,
+          "Z": -0.99832,
+          "W": 0.01445555,
+          "IsIdentity": false
+        },
+        "Transformation": {
+          "Position": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0,
+            "IsIdentity": true
+          }
+        }
+      },
+      "Target": {
+        "Name": "rightKnee",
+        "NeutralRotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        },
+        "Transformation": {
+          "Position": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0,
+            "IsIdentity": true
+          }
+        }
+      },
+     
+      "Name": "rightHip_rightKnee"
+    },
+    {
+      "NeutralDirection": {
+        "X": 0.0,
+        "Y": 1.0,
+        "Z": 0.0
+      },
+      "Source": {
+        "Name": "leftKnee",
+        "NeutralRotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        },
+        "Transformation": {
+          "Position": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0,
+            "IsIdentity": true
+          }
+        }
+      },
+      "Target": {
+        "Name": "leftAnkle",
+        "NeutralRotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        },
+        "Transformation": {
+          "Position": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0,
+            "IsIdentity": true
+          }
+        }
+      },
+      
+      "Name": "leftKnee_leftAnkle"
+    },
+    {
+      "NeutralDirection": {
+        "X": 0.0,
+        "Y": 1.0,
+        "Z": 0.0
+      },
+      "Source": {
+        "Name": "rightKnee",
+        "NeutralRotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        },
+        "Transformation": {
+          "Position": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0,
+            "IsIdentity": true
+          }
+        }
+      },
+      "Target": {
+        "Name": "rightAnkle",
+        "NeutralRotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        },
+        "Transformation": {
+          "Position": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0,
+            "IsIdentity": true
+          }
+        }
+      },
+      
+      "Name": "rightKnee_rightAnkle"
+    },
+    {
+      "NeutralDirection": {
+        "X": 0.0,
+        "Y": 1.0,
+        "Z": 0.0
+      },
+      "Source": {
+        "Name": "neck",
+        "NeutralRotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        },
+        "Transformation": {
+          "Position": {
+            "X": 238.7565,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0,
+            "IsIdentity": true
+          }
+        }
+      },
+      "Target": {
+        "Name": "head",
+        "NeutralRotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0,
+          "W": 1.0,
+          "IsIdentity": true
+        },
+        "Transformation": {
+          "Position": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0,
+            "IsIdentity": true
+          }
+        }
+      },
+     
+      "Name": "neck_head"
+    }
+  ]
+}

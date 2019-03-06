@@ -30,11 +30,14 @@ namespace Assets.Sources.Maps
                 List<CharacterGraphEdge> subset = this.Subset(entry, inputs);
                 Vector3 sourceAverage = subset.Select(edge => edge.Source.Transformation.Position).Average();
                 Vector3 targetAverage = subset.Select(edge => edge.Target.Transformation.Position).Average();
+              
 
-                foreach(CharacterGraphEdge edge in entry.Output)
+                foreach (CharacterGraphEdge edge in entry.Output)
                 {
                     edge.Source.Transformation.Position = sourceAverage;
+                  
                     edge.Target.Transformation.Position = targetAverage;
+                   
                 }
             }
 

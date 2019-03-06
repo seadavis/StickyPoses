@@ -2,12 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
-using UnityEngine;
+
 
 namespace Assets.Sources.Graph
 {
+    [Serializable]
     public class CharacterGraphNode : INamedObject
     {
 
@@ -19,7 +21,13 @@ namespace Assets.Sources.Graph
         public string Name
         {
             get;
-            private set;
+            set;
+        }
+
+        public System.Numerics.Quaternion NeutralRotation
+        {
+            get;
+            set;
         }
 
         /// <summary>
@@ -42,6 +50,7 @@ namespace Assets.Sources.Graph
         {
             this.Name = string.Empty;
             this.Transformation = new NodeTransform();
+            this.NeutralRotation = Quaternion.Identity;
         }
 
         /// <summary>
@@ -53,6 +62,7 @@ namespace Assets.Sources.Graph
         {
             this.Name = name;
             this.Transformation = transform;
+            this.NeutralRotation = Quaternion.Identity;
         }
 
         #endregion

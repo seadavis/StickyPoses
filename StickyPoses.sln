@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StickyPoses", "Assembly-CSharp.csproj", "{97E871C3-0BA8-8D73-8403-E453A45EB500}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StickyPoses", "Assembly-CSharp-Editor.csproj", "{4770A71E-5E60-93DD-027F-51FCF416F70E}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUnityRotoScope", "..\TestUnityRotoScope\TestUnityRotoScope.csproj", "{2CD31397-6AF2-4DCA-8D5E-BE49F78D61BE}"
 EndProject
 Global
@@ -15,6 +17,10 @@ Global
 		{97E871C3-0BA8-8D73-8403-E453A45EB500}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97E871C3-0BA8-8D73-8403-E453A45EB500}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97E871C3-0BA8-8D73-8403-E453A45EB500}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4770A71E-5E60-93DD-027F-51FCF416F70E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4770A71E-5E60-93DD-027F-51FCF416F70E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4770A71E-5E60-93DD-027F-51FCF416F70E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4770A71E-5E60-93DD-027F-51FCF416F70E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2CD31397-6AF2-4DCA-8D5E-BE49F78D61BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2CD31397-6AF2-4DCA-8D5E-BE49F78D61BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CD31397-6AF2-4DCA-8D5E-BE49F78D61BE}.Release|Any CPU.ActiveCfg = Release|Any CPU

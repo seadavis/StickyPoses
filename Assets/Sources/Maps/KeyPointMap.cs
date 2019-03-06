@@ -17,7 +17,7 @@ namespace Assets.Sources.Maps
 
     {
         #region Private Variables
-        private float zValue;
+        private Vector3 transform;
         #endregion
 
         #region Constructor
@@ -26,10 +26,10 @@ namespace Assets.Sources.Maps
         /// 
         /// </summary>
         /// <param name="mapEntries"></param>
-        /// <param name="zValue">the z-value to put all of the keypoints into.</param>
-        public KeyPointMap(MapEntry<List<Keypoint>, CharacterGraphNode>[] mapEntries, float zValue) : base(mapEntries)
+        /// <param name="transform">the transform to apply to each mapped keypoint.</param>
+        public KeyPointMap(MapEntry<List<Keypoint>, CharacterGraphNode>[] mapEntries, Vector3 transform) : base(mapEntries)
         {
-            this.zValue = zValue;
+            this.transform = transform;
         }
 
         #endregion
@@ -50,7 +50,7 @@ namespace Assets.Sources.Maps
             {
                 List<Keypoint> subset = this.Subset(entry, inputs);
                 Vector3[] keyPointVectors = subset.Select(keypoint => keypoint.position)
-                                                  .Select(v => new Vector3(v.X, v.Y, this.zValue))
+                                                  .Select(v => new Vector3(v.X, v.Y, 0.0f))
                                                   .ToArray();
                 entry.Output.Transformation.Position = keyPointVectors.Average();
 

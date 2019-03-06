@@ -58,11 +58,13 @@ public partial class PoseNet {
                         continue;
                     }
 
+                    
                     // Only consider keypoints whose score is maximum in a local window.
                     if (ScoreIsMaximumInLocalWindow(
                             keypointId, score, heatmapY, heatmapX, localMaximumRadius,
                             scores))
                     {
+                        
                         queue.Push(score, new PartWithScore(score,
                             new Part(heatmapX, heatmapY, keypointId)
                         ));

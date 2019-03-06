@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using Assets.Sources.Exceptions;
 using System.Numerics;
 using QuickGraph;
-
+using Newtonsoft.Json.Linq;
+using System.Diagnostics;
 
 namespace Assets.Sources.Graph
 {
-    public class CharacterGraph : BidirectionalGraph<CharacterGraphNode, IEdge<CharacterGraphNode>>
+    [Serializable]
+    public class CharacterGraph : BidirectionalGraph<CharacterGraphNode, CharacterGraphEdge>
     {
 
         #region PublicMethods
@@ -42,6 +44,17 @@ namespace Assets.Sources.Graph
                 throw new NamedObjectDoesNotExistException(name);
             }
            
+        }
+
+        /// <summary>
+        /// Calculatesall of the rotations on all of the nodes on the character graph.
+        /// </summary>
+        public void CalculateRotations()
+        {
+            foreach(CharacterGraphNode vertex in this.Vertices)
+            {
+                vertex.Transformation.Rotation = this.CalculateRotation(vertex);
+            }
         }
 
         /// <summary>
@@ -79,9 +92,9 @@ namespace Assets.Sources.Graph
         /// <summary>
         /// Grabs the 4x4 rotation matrix of the given graph node.
         /// </summary>
-        /// <param name="node">the node we want to calculate the rotation for. </param>
+        /// <param name="node">the edge to caluclatethe rotation for.</param>
         /// <returns>the rotation for the given node.</returns>
-        protected virtual Quaternion CalculateRotation(CharacterGraphNode node)
+        protected virtual Tuple<float, Vector3> CalculateRotation(CharacterGraphNode node)
         {
             IEnumerable<CharacterGraphNode> graphNode = this.Vertices.Where(c => c.Equals(node));
 
@@ -91,11 +104,12 @@ namespace Assets.Sources.Graph
             }
             else
             {
-                CharacterGraphNode parent = this.GetParent(node);
-                IEdge<CharacterGraphNode> child = this.GetChildEdge(node);
-                if (parent != null && child != null)
+             
+                CharacterGraphEdge edge = this.GetChildEdge(node);
+
+                if (edge != null)
                 {
-                    return this.CalculateRotation(parent, graphNode.First(), child.Target);
+                    return this.CalculateRotation(edge);
                 }
                 else
                 {
@@ -104,7 +118,60 @@ namespace Assets.Sources.Graph
             }
         }
 
-     
+
+
+        #endregion
+
+        #region Static Methods
+
+        /// <summary>
+        /// De serializes the JSON serialization of the given graph.
+        /// </summary>
+        /// <param name="serializedGraph">the JSON serialization of the graph.</param>
+        /// <returns>The character graph represented in the given serialization</returns>
+        public static CharacterGraph DeSerializeGraph(string serializedGraph)
+        {
+            JObject obj = JObject.Parse(serializedGraph);
+            CharacterGraphNode[] nodes = obj["Vertices"].ToObject<CharacterGraphNode[]>();
+            CharacterGraphEdge[] edges = obj["Edges"].ToObject<CharacterGraphEdge[]>();
+            CharacterGraph graph = new CharacterGraph();
+            foreach (CharacterGraphEdge e in edges)
+            {
+                CharacterGraphNode source;
+                CharacterGraphNode target;
+                CharacterGraphNode[] sourceInGraph = graph.Vertices.Where(v => v.Name == e.Source.Name).ToArray();
+                CharacterGraphNode[] targetInGraph = graph.Vertices.Where(v => v.Name == e.Target.Name).ToArray();
+
+                if (sourceInGraph.Length == 0)
+                {
+                    graph.AddVertex(e.Source);
+                    source = e.Source;
+                }
+                else
+                {
+                    source = sourceInGraph.First();
+                }
+
+                if (targetInGraph.Length == 0)
+                {
+                    graph.AddVertex(e.Target);
+                    target = e.Target;
+                }
+                else
+                {
+                    target = targetInGraph.First();
+                }
+                CharacterGraphEdge edge = new CharacterGraphEdge(source, target);
+                edge.NeutralDirection = e.NeutralDirection;
+                edge.Source.NeutralRotation = e.Source.NeutralRotation;
+                edge.Target.NeutralRotation = e.Target.NeutralRotation;
+                edge.AngleRange = e.AngleRange;
+                graph.AddEdge(edge);
+            }
+
+            return graph;
+        }
+
         #endregion
 
         #region Private Methods
@@ -134,13 +201,13 @@ namespace Assets.Sources.Graph
         /// </summary>
         /// <param name="node"></param>
         /// <returns>the edge where this points to the child.</returns>
-        private IEdge<CharacterGraphNode> GetChildEdge(CharacterGraphNode node)
+        private CharacterGraphEdge GetChildEdge(CharacterGraphNode node)
         {
             
-            IEnumerable<IEdge<CharacterGraphNode>> edges = this.Edges.Where((edge) => edge.Source.Equals(node));
+            IEnumerable<CharacterGraphEdge> edges = this.Edges.Where((edge) => edge.Source.Equals(node));
             if (edges.Count() > 0)
             {
-                IEdge<CharacterGraphNode> edge = edges.First();
+                CharacterGraphEdge edge = edges.First();
                 return edge;
             }
             else
@@ -172,20 +239,55 @@ namespace Assets.Sources.Graph
         /// <summary>
         /// Calculates the rotation between the vertices from node to node2 and node2 to node3
         /// </summary>
-        /// <param name="node">the first node in the chain.</param>
-        /// <param name="node2">the second node in the change</param>
-        /// <param name="node3">the last node in the chain.</param>
+        /// <param name="edge">the edge to calculate the rotation of.</param>
         /// <returns>a quaternion representing the rotation between the three nodes.</returns>
-        private Quaternion CalculateRotation(CharacterGraphNode node, CharacterGraphNode node2, CharacterGraphNode node3)
+        private Tuple<float,Vector3> CalculateRotation(CharacterGraphEdge edge)
         {
-            Vector3 v1 = Vector3.Normalize(node2.Transformation.Position - node.Transformation.Position);
-            Vector3 v2 = Vector3.Normalize(node3.Transformation.Position - node2.Transformation.Position);
-            float angle = Vector3.Dot(v1, v2);
+           
+            Vector3 v1 = Vector3.Normalize(edge.Target.Transformation.Position - edge.Source.Transformation.Position);
+            Vector3 v2 = Vector3.Normalize(edge.NeutralDirection);
+            /*CharacterGraphEdge parentEdge = this.Edges.Where(e => e.Target.Name == edge.Source.Name).FirstOrDefault();
+            if (parentEdge != null)
+            {
+                Tuple<float, Vector3> parentRotation = parentEdge.Source.Transformation.Rotation;
+                if (parentRotation.Item1 > 0)
+                {
+                    Quaternion axisAngle = Quaternion.CreateFromAxisAngle(parentRotation.Item2, parentRotation.Item1 * (float)(Math.PI / 180.0));
+                    Vector3 newNeutral = Vector3.Normalize(Vector3.Transform(v2, axisAngle));
+                    v2 = newNeutral;
+
+                    if(edge.Source.Name == "rightElbow")
+                    {
+                        UnityEngine.Debug.Log(
+                     string.Format("Source: {0} Target:{1} V1:{2} V2:{3} Neutral Direction:{4}, Parent Angle: {5}, Parent Axis:{6} Parent Q:{7}",
+                     edge.Source.Name, edge.Target.Name, v1, v2, edge.NeutralDirection, parentRotation.Item1, parentRotation.Item2, axisAngle));
+                    }
+                 
+                }
+
+              
+            }*/
+            float dot = Vector3.Dot(v1, v2);
+            float acos = (float)(Math.Acos(dot));
+            float angle = (float)(acos * (180.0f / Math.PI));
+
             Vector3 axis = Vector3.Normalize(Vector3.Cross(v1, v2));
 
-           
+            if (edge.Source.Name == "rightElbow")
+            {
+                UnityEngine.Debug.Log(string.Format("Calculated Axis: {0} Calculated Angle:{1} Dot: {2} ACos:{3}", axis, angle,dot, acos));
+            }
 
-            return Quaternion.CreateFromAxisAngle(axis, angle);
+            if (axis.HasNaN())
+            {
+                return new Tuple<float, Vector3>(0.0f, Vector3.UnitX);
+            }
+            else
+            {
+              
+                return new Tuple<float, Vector3>(angle,  axis);
+            }
+            
         }
 
         #endregion

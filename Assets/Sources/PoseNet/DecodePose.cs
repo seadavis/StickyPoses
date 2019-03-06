@@ -1,5 +1,6 @@
 ﻿using Assets;
 using UnityEngine;
+using Assets.Sources;
 
 public partial class PoseNet
 {
